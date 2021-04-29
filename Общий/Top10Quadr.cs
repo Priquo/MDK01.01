@@ -33,6 +33,7 @@ namespace Общий
                 {
                     max = quadr[i];
                     Debug.WriteLine("max = {0}", max);
+                    if (i < 5) Debug.Fail("а чего у вас маскимум в первой половине?");
                 }
             }
             //Console.WriteLine("\nМаксимум равен {0}", max);
