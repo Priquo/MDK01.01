@@ -59,6 +59,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructFiles.cs" />
+    <Compile Include="Top10Quadr.cs" />
     <Compile Include="Zad2_Parent.cs" />
     <Compile Include="Zodiac.cs" />
   </ItemGroup>
