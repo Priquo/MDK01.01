@@ -13,7 +13,7 @@ namespace Общий
 {
     class Program
     {
-        public struct User
+        public struct User //структура для обобщенных списков
         {
             public string f;
             public string i;
@@ -394,6 +394,7 @@ namespace Общий
                 v.show();
             }
         }
+        //методы для обобщенных типов (все три)
         public static void show<T>(T t1)
         {
             Console.WriteLine(t1);
