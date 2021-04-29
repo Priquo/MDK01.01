@@ -27,6 +27,7 @@ namespace Общий
         }
         static void Main(string[] args)
         {
+            string path = @"X:\subjects\МДК 01.01\ДляФайлов\list.csv";
             //char x = 'A';
             //Menu f = new Menu();
             //f.Menu1();
@@ -175,8 +176,7 @@ namespace Общий
             //foreach (var x in users)
             //{
             //    Console.WriteLine(x.OutData());
-            //}
-            string path = @"X:\subjects\МДК 01.01\ДляФайлов\list.csv";
+            //}            
             //try
             //{
             //    //File.CreateText(path);
@@ -391,11 +391,33 @@ namespace Общий
             ShowList(ListYoungerThan21);
 
             //объединение, пересечение и разность списков
+            Console.WriteLine("\n\t\tСписок мужчины минус младше 21");
             List<User> List1 = ListM.Except(ListYoungerThan21).ToList();
+            ShowList(List1);
+            Console.WriteLine("\n\t\tСписок мужчины объединить младше 21");
+            List<User> List2 = ListM.Concat(ListYoungerThan21).ToList();
+            ShowList(List2);
+            Console.WriteLine("\n\t\tСписок мужчины пересечение младше 21");
+            List<User> List3 = ListM.Intersect(ListYoungerThan21).ToList();
+            ShowList(List3);
+
+            string path1 = @"X:\subjects\МДК 01.01\ДляФайлов\list1.csv";
+            PrintToFile(path1, List1);
 
             Console.ReadKey();
         }
-        //
+        //метод записи списка в файо
+        public static void PrintToFile(string path, List<User> L)
+        {
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                foreach (User u in L)
+                {
+                    sw.WriteLine(u.f + ";" + u.i + ";" + u.o + ";" + Convert.ToString(u.gender) + ";" + Convert.ToString(u.birth));
+                }
+            }
+        }
+        //метод вывода содержимого списка с типов структуры
         public static void ShowList(List<User> u)
         {
             foreach (var v in u)
