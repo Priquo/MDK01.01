@@ -406,14 +406,19 @@ namespace Общий
             //PrintToFile(path1, List1);
 
             // ####################### Работа с отладчиком ##############################
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.Listeners.Add(new TextWriterTraceListener(File.CreateText(path2)));
-            Debug.AutoFlush = true;
+            //Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            //Debug.Listeners.Add(new TextWriterTraceListener(File.CreateText(path2)));
+            //Debug.AutoFlush = true;
+            Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Trace.Listeners.Add(new TextWriterTraceListener(File.CreateText(path2)));
+            Trace.AutoFlush = true;
             Top10Quadr t10 = new Top10Quadr();
             //t10.ShowTop10Quadr();
-            Debug.WriteLine("Максимум");
+            //Debug.WriteLine("Максимум");
+            Trace.WriteLine("Максимум");
             t10.Max();
-            Debug.WriteLine("Сортировка");
+            //Debug.WriteLine("Сортировка");
+            Trace.WriteLine("Сортировка");
             t10.Sort();            
             
 

@@ -32,8 +32,10 @@ namespace Общий
                 if (max < quadr[i])
                 {
                     max = quadr[i];
-                    Debug.WriteLine("max = {0}", max);
-                    if (i < 5) Debug.Fail("а чего у вас маскимум в первой половине?");
+                    //Debug.WriteLine("max = {0}", max);
+                    //if (i < 5) Debug.Fail("а чего у вас маскимум в первой половине?");
+                    Trace.WriteLine("max = {0}", max.ToString());
+                    if (i < 5) Trace.Fail("а чего у вас маскимум в первой половине?");
                 }
             }
             //Console.WriteLine("\nМаксимум равен {0}", max);
@@ -50,7 +52,8 @@ namespace Общий
                         temp = quadr[j];
                         quadr[j] = quadr[j + 1];
                         quadr[j + 1] = temp;
-                        Debug.WriteLine("{0}\t", quadr[j].ToString());
+                        //Debug.WriteLine("{0}\t", quadr[j].ToString());
+                        Trace.WriteLine("{0}\t", quadr[j].ToString());
                     }
                 }
             }
