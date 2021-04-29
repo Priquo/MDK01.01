@@ -368,41 +368,45 @@ namespace Общий
             //Console.WriteLine(d3('H', 'i'));
 
             // ####################### Обобщенный список ##############################
-            List <User> Users = new List<User>();
-            using (StreamReader sr = new StreamReader(path))
-            {
-                while(sr.EndOfStream != true)
-                {
-                    string[] str = sr.ReadLine().Split(';');
-                    Users.Add(new User() { f = str[0], i = str[1], o = str[2], gender = Convert.ToChar(str[3]), birth = Convert.ToDateTime(str[4])});
-                }                
-            }
-            ShowList(Users);
+            //List <User> Users = new List<User>();
+            //using (StreamReader sr = new StreamReader(path))
+            //{
+            //    while(sr.EndOfStream != true)
+            //    {
+            //        string[] str = sr.ReadLine().Split(';');
+            //        Users.Add(new User() { f = str[0], i = str[1], o = str[2], gender = Convert.ToChar(str[3]), birth = Convert.ToDateTime(str[4])});
+            //    }                
+            //}
+            //ShowList(Users);
 
-            //новые списки
-            List<User> ListM = Users.Where(x => x.gender == 'м').ToList();
-            Console.WriteLine("\n\t\tСписок мужчин");
-            ShowList(ListM);
-            Console.WriteLine("\n\t\tСписок женщин старше 21");
-            List<User> ListWOlderThan21 = Users.Where(x => x.birth.Year <= 2000 && x.gender == 'ж').ToList();
-            ShowList(ListWOlderThan21);
-            Console.WriteLine("\n\t\tСписок младше 21");
-            List<User> ListYoungerThan21 = Users.Where(x => x.birth.Year >= 2000).ToList();
-            ShowList(ListYoungerThan21);
+            ////новые списки
+            //List<User> ListM = Users.Where(x => x.gender == 'м').ToList();
+            //Console.WriteLine("\n\t\tСписок мужчин");
+            //ShowList(ListM);
+            //Console.WriteLine("\n\t\tСписок женщин старше 21");
+            //List<User> ListWOlderThan21 = Users.Where(x => x.birth.Year <= 2000 && x.gender == 'ж').ToList();
+            //ShowList(ListWOlderThan21);
+            //Console.WriteLine("\n\t\tСписок младше 21");
+            //List<User> ListYoungerThan21 = Users.Where(x => x.birth.Year >= 2000).ToList();
+            //ShowList(ListYoungerThan21);
 
-            //объединение, пересечение и разность списков
-            Console.WriteLine("\n\t\tСписок мужчины минус младше 21");
-            List<User> List1 = ListM.Except(ListYoungerThan21).ToList();
-            ShowList(List1);
-            Console.WriteLine("\n\t\tСписок мужчины объединить младше 21");
-            List<User> List2 = ListM.Concat(ListYoungerThan21).ToList();
-            ShowList(List2);
-            Console.WriteLine("\n\t\tСписок мужчины пересечение младше 21");
-            List<User> List3 = ListM.Intersect(ListYoungerThan21).ToList();
-            ShowList(List3);
+            ////объединение, пересечение и разность списков
+            //Console.WriteLine("\n\t\tСписок мужчины минус младше 21");
+            //List<User> List1 = ListM.Except(ListYoungerThan21).ToList();
+            //ShowList(List1);
+            //Console.WriteLine("\n\t\tСписок мужчины объединить младше 21");
+            //List<User> List2 = ListM.Concat(ListYoungerThan21).ToList();
+            //ShowList(List2);
+            //Console.WriteLine("\n\t\tСписок мужчины пересечение младше 21");
+            //List<User> List3 = ListM.Intersect(ListYoungerThan21).ToList();
+            //ShowList(List3);
 
-            string path1 = @"X:\subjects\МДК 01.01\ДляФайлов\list1.csv";
-            PrintToFile(path1, List1);
+            //string path1 = @"X:\subjects\МДК 01.01\ДляФайлов\list1.csv";
+            //PrintToFile(path1, List1);
+
+            // ####################### Работа с отладчиком ##############################
+            Top10Quadr t10 = new Top10Quadr();
+            t10.ShowTop10Quadr();
 
             Console.ReadKey();
         }
