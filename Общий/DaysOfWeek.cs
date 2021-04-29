@@ -18,7 +18,7 @@ namespace Общий
     }
     class DaysOfWeek
     {
-        public object ReturnNameDay()
+        public object ReturnCountDaysBetween()
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Общий
             
             return 0;
         }
-        public object ReturnCountDaysBetween()
+        public object ReturnNameDay()
         {
             try
             {

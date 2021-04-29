@@ -377,16 +377,25 @@ namespace Общий
                     Users.Add(new User() { f = str[0], i = str[1], o = str[2], gender = Convert.ToChar(str[3]), birth = Convert.ToDateTime(str[4])});
                 }                
             }
-            foreach (var v in Users)
-            {
-                v.show();
-            }
+            ShowList(Users);
 
+            //новые списки
             List<User> ListM = Users.Where(x => x.gender == 'м').ToList();
+            Console.WriteLine("\n\t\tСписок мужчин");
+            ShowList(ListM);
+            Console.WriteLine("\n\t\tСписок женщин старше 21");
+            List<User> ListWOlderThan21 = Users.Where(x => x.birth.Year <= 2000 && x.gender == 'ж').ToList();
+            ShowList(ListWOlderThan21);
+            Console.WriteLine("\n\t\tСписок младше 21");
+            List<User> ListYoungerThan21 = Users.Where(x => x.birth.Year >= 2000).ToList();
+            ShowList(ListYoungerThan21);
+
+            //объединение, пересечение и разность списков
+            List<User> List1 = ListM.Except(ListYoungerThan21).ToList();
 
             Console.ReadKey();
         }
-        
+        //
         public static void ShowList(List<User> u)
         {
             foreach (var v in u)
