@@ -8,6 +8,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.RegularExpressions;
 using System.Collections;
+using System.Diagnostics;
 
 namespace Общий
 {
@@ -27,7 +28,8 @@ namespace Общий
         }
         static void Main(string[] args)
         {
-            string path = @"X:\subjects\МДК 01.01\ДляФайлов\list.csv";
+            string path = @"X:\subjects\МДК 01.01\ДляФайлов\list.csv"; //путь для работы с файлами csv
+            string path2 = @"X:\subjects\МДК 01.01\ДляФайлов\listener.txt";
             //char x = 'A';
             //Menu f = new Menu();
             //f.Menu1();
@@ -49,7 +51,7 @@ namespace Общий
             //NewOper c2 = new NewOper(5, "ПЯТЬ");
             //Console.WriteLine(c1.Equals(c2));
 
-
+            // ####################### МДК 01.02 #######################
             // ####################### Тестирование черного и белого ящика ##############################
             //double n, m, k;
 
@@ -69,6 +71,16 @@ namespace Общий
             //{
             //    Console.WriteLine("Что-то пошло не так, и вот почему: " + e.Message);
             //}
+            // ####################### Нисходящее и восходящее тестирование ##############################
+            //Lab8_downUpTest pop = new Lab8_downUpTest(5);
+            //pop.OutArr();
+            //pop.SumModAfterZero();
+            //pop.SortLikeIwant();
+            //pop.OutArr();
+            //Lab8_downUpTestTest.InpArr();
+            //Lab8_downUpTestTest.Lab8_SumMod_Test();
+            //Lab8_downUpTestTest.Lab8_Min_Test();
+            //Lab8_downUpTestTest.Lab8_Sort_Test();
 
             // ####################### Попытки использовать наследование ##############################
             //Mother a = new Mother();
@@ -97,18 +109,7 @@ namespace Общий
             //ch.Zamena();
 
             //Zad2_Child ch2 = ch * ch1;
-            //ch2.OutArr();
-
-            // ####################### Нисходящее тестирование ##############################
-            //Lab8_downUpTest pop = new Lab8_downUpTest(5);
-            //pop.OutArr();
-            //pop.SumModAfterZero();
-            //pop.SortLikeIwant();
-            //pop.OutArr();
-            //Lab8_downUpTestTest.InpArr();
-            //Lab8_downUpTestTest.Lab8_SumMod_Test();
-            //Lab8_downUpTestTest.Lab8_Min_Test();
-            //Lab8_downUpTestTest.Lab8_Sort_Test();
+            //ch2.OutArr();            
 
             // ####################### Абстрактные классы и интерфейсы ##############################
             //Triangle t = new Triangle(10, 8, 9);
@@ -405,12 +406,20 @@ namespace Общий
             //PrintToFile(path1, List1);
 
             // ####################### Работа с отладчиком ##############################
+            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Debug.Listeners.Add(new TextWriterTraceListener(File.CreateText(path2)));
+            Debug.AutoFlush = true;
             Top10Quadr t10 = new Top10Quadr();
-            t10.ShowTop10Quadr();
+            //t10.ShowTop10Quadr();
+            Debug.WriteLine("Максимум");
+            t10.Max();
+            Debug.WriteLine("Сортировка");
+            t10.Sort();            
+            
 
             Console.ReadKey();
         }
-        //метод записи списка в файо
+        //метод записи списка в файл csv
         public static void PrintToFile(string path, List<User> L)
         {
             using (StreamWriter sw = new StreamWriter(path))
