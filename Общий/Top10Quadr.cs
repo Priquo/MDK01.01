@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace Общий
 {
-    class Top10Quadr
+    public class Top10Quadr
     {
         int[] quadr = new int[10];
         public Top10Quadr()
@@ -24,7 +24,7 @@ namespace Общий
                 Console.WriteLine(v);
             }
         }
-        public void Max()
+        public int Max()
         {
             int max = quadr[0];
             for (int i = 0; i < 10; i++)
@@ -34,13 +34,14 @@ namespace Общий
                     max = quadr[i];
                     //Debug.WriteLine("max = {0}", max);
                     //if (i < 5) Debug.Fail("а чего у вас маскимум в первой половине?");
-                    Trace.WriteLine("max = {0}", max.ToString());
-                    if (i < 5) Trace.Fail("а чего у вас маскимум в первой половине?");
+                    //Trace.WriteLine("max = {0}", max.ToString());
+                    //if (i < 5) Trace.Fail("а чего у вас маскимум в первой половине?");
                 }
             }
+            return max;
             //Console.WriteLine("\nМаксимум равен {0}", max);
         }
-        public void Sort()
+        public int[] Sort()
         {
             int temp = 0;
             for (int i = 0; i < 10; i++)
@@ -53,10 +54,11 @@ namespace Общий
                         quadr[j] = quadr[j + 1];
                         quadr[j + 1] = temp;
                         //Debug.WriteLine("{0}\t", quadr[j].ToString());
-                        Trace.WriteLine("{0}\t", quadr[j].ToString());
+                        //Trace.WriteLine("{0}\t", quadr[j].ToString());
                     }
                 }
             }
+            return quadr;
         }
     }
 }
