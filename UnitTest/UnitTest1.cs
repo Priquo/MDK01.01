@@ -17,7 +17,11 @@ namespace UnitTest
         public void TestSort()
         {
             int[] sort = new int[10] { 100, 81, 64, 49, 36, 25, 16, 9, 4, 1 };
-            Assert.AreEqual(sort, a.Sort());
+            int[] fact = a.Sort();
+            for (int i = 1; i < 11; i++)
+            {
+                Assert.AreEqual(sort[i-1], fact[i-1]);
+            }
         }
     }
 }
