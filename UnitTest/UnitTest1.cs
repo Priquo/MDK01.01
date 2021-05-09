@@ -11,12 +11,16 @@ namespace UnitTest
         [TestMethod]
         public void TestMax()
         {
-            Assert.AreEqual(100, a.Max());
+            //Assert.AreEqual(100, a.Max());
+            //Assert.AreEqual(20, a.Max());
+            Assert.AreEqual(10, a.Max());
         }
         [TestMethod]
         public void TestSort()
         {
-            int[] sort = new int[10] { 100, 81, 64, 49, 36, 25, 16, 9, 4, 1 };
+            //int[] sort = new int[10] { 100, 81, 64, 49, 36, 25, 16, 9, 4, 1 };
+            //int[] sort = new int[10] { 100, 81, 64, 49, 36, 25, 6, 9, 4, 1 };
+            int[] sort = new int[10] { 100, 81, 64, 49, 36, 25, 16, 9, 4, 0 };
             int[] fact = a.Sort();
             for (int i = 1; i < 11; i++)
             {
