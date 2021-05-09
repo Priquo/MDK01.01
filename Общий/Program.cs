@@ -29,7 +29,8 @@ namespace Общий
         static void Main(string[] args)
         {
             string path = @"X:\subjects\МДК 01.01\ДляФайлов\list.csv"; //путь для работы с файлами csv
-            string path2 = @"X:\subjects\МДК 01.01\ДляФайлов\listener.txt";
+            //string path2 = @"X:\subjects\МДК 01.01\ДляФайлов\listener.txt";
+            string path2 = @"F:\VS Projects\ForFiles\listener.txt"; // путь аналогичный строчке выше, но для домашнего ПК
             //char x = 'A';
             //Menu f = new Menu();
             //f.Menu1();
